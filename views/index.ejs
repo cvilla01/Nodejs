@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IoT Ciisa</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </head>
+  <body ng-app="IoTApp">
+    <div><center><img width="200px" class="logo" src="http://localhost:3000/images/Logo.png" alt="My_Logo"></center><br/><br/></div>
+    <div ng-controller="main">
+      <form ng-submit="main.connect()">
+        <!---- <label for="OrgId">Organización : </label>
+        <input id="OrgId" type="text" ng-model="main.OrgId" required> <br/><br/>
+        <label for="APIKey">API Key : </label>
+        <input id="APIKey" type="text" ng-model="main.APIKey" type="password"required><br/><br/>
+        <label for="AuthToken">Token : </label> --->
+        <center><input id="AuthToken" class="form-control" type="password" style = "width: 40%" ng-model="main.AuthToken" placeholder="Enter password" required><br/><br/></center>
+        <center><input type="submit" type="button" class="btn btn-primary" value="Connectar" > </center>
+      </form>
+
+      <center><p class="h1">Raspberry</p></center>
+      <table class="table table-striped">
+          <div>
+        <tr>
+          <th class="text-center">Temperatura</th>
+          <th class="text-center">Humedad</th>
+          <th class="text-center" >Presion</th>
+        </tr>
+        <tr>
+          <td><pre ng-show="main.EventLog" >{{main.EventLog}}</pre></td>
+          <td><pre ng-show="main.EventHumedad" >{{main.EventHumedad}}</pre></td>
+          <td><pre ng-show="main.EventPresion" >{{main.EventPresion}}</pre></td>
+        </tr>
+      </div>
+      </table>
+
+      <center><p class="h1">Maqueta</p></center>
+    <table class="table table-striped">
+    <div>
+      <tr>
+        <th class="text-center">Voltaje</th>
+        <th class="text-center">Ampere</th>
+      </tr>
+      <tr>
+        <td><pre ng-show="main.EventVolt" >{{main.EventVolt}}</pre></td>
+        <td><pre ng-show="main.EventAmpere">{{main.EventAmpere}}</pre></td>
+      </tr>
+    </div>
+    </table>
+
+    <script src="/angular.js"></script>
+    <script src="/iotf-client-bundle.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+  </div>
+  </div>
+  </body>
+</html>
